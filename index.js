@@ -14,8 +14,8 @@ const loadCommand = (dir = "./cmds/") => {
 
         for (const file of commands) {
             const getFilesName = require(`${dir}/${dirs}/${file}`);
-            bot.commands.set(getFilesName.config.name, getFilesName)
-            console.log("[" + color.blueBright `⭐` + `] : Commande chargé : ${getFilesName.config.name}`);
+            bot.commands.set(getFilesName.name, getFilesName)
+            console.log("[" + color.blueBright `⭐` + `] : Commande chargé : ${getFilesName.name}`);
         };
     });
 };

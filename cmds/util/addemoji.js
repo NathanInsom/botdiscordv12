@@ -31,6 +31,7 @@ module.exports.run = async(bot, message, args) => {
       .catch((error) => {
         console.log(error);
       });
+
     const Added = new MessageEmbed()
       .setTitle(`Emoji Ajouté`)
       .setColor(`${Color}`)

@@ -10,7 +10,6 @@ var times = (`[${hour}:${minute}:${second}]/`);
 
 module.exports.run = async(bot, message, args) => {
 
-
     message.reply("Combien de caractères souhaitez-vous ?");
 
     var nb_caract = "nd";
