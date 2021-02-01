@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 const { readdirSync } = require('fs')
 const color = require('chalk')
 const fs = require('fs')
-const config = require('./db/config.json')
+const config = require('./config.json')
 require('dotenv').config();
 
 bot.commands = new Discord.Collection()
@@ -75,7 +75,7 @@ bot.on('guildCreate', guild => {
         .addField("<a:Aila_ScribbleHeart:793220850363007006> __Serveurs actuel__ :", true)
 
     .setColor("#F03A17")
-    bot.channels.cache.get('801187747242311750').send(embed);
+    bot.channels.cache.get(config.defaultChannel).send(embed);
 });
 
 bot.login(process.env.AUTH_TOKEN)

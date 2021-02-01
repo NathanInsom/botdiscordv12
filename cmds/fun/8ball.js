@@ -2,7 +2,6 @@ const Discord = require("discord.js")
 const { purple_medium } = require("../../colors.json");
 module.exports.run = async(bot, message, args) => {
     var options = [
-
         "Oui",
         "Non",
         "Pas du tout",

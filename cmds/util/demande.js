@@ -1,3 +1,4 @@
+const config = require('../../config.json')
 const Discord = require('discord.js');
 
 module.exports.run = async(bot, message, args) => {
@@ -9,7 +10,7 @@ module.exports.run = async(bot, message, args) => {
         .addField("💼 __Donné par :__", "<@" + message.author.id + ">", true)
         .addField("📝 __Description :__", thingToEcho, true)
         .setColor("#FFD679")
-    bot.channels.cache.get('791787191017799708').send(suggest)
+    bot.channels.cache.get(config.suggestChannel).send(suggest)
         .then(function(message) {
             message.react("✔️")
             message.react("❌")
