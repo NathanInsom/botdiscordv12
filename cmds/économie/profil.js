@@ -3,7 +3,7 @@ const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 module.exports.run = async(bot, message, args) => {
 
-    const adapter = new FileSync('./db.json')
+    const adapter = new FileSync('./data.json')
     const db = low(adapter)
     const member = message.mentions.users.first() || message.author
 

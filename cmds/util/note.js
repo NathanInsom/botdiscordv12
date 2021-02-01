@@ -4,7 +4,7 @@ const FileSync = require('lowdb/adapters/FileSync')
 module.exports.run = async(bot, message, args) => {
     console.log(`|----> note utilisé sur le serveur :  ${message.guild.name} `)
 
-    const adapter = new FileSync('./db.json')
+    const adapter = new FileSync('./data.json')
     const db = low(adapter)
     const get_notes = db.get("note").find({ auteur: message.author.id }).value()
     let note = ''
