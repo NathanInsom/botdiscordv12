@@ -1,10 +1,7 @@
 const Discord = require("discord.js")
 const { purple_medium } = require("../../colors.json");
-
-
 module.exports.run = async(bot, message, args) => {
 
-    let mentioned = message.mentions.members.first() || message.author
     var options = [
 
         "https://acegif.com/wp-content/uploads/2020/11/am0ngsusxh-28.gif",
@@ -29,23 +26,17 @@ module.exports.run = async(bot, message, args) => {
         "https://acegif.com/wp-content/uploads/2020/11/am0ngsusxh-6.gif",
         "https://acegif.com/wp-content/uploads/2020/11/am0ngsusxh-8.gif", // 20
         "https://acegif.com/wp-content/uploads/2020/11/am0ngsusxh-16.gif",
-
-
     ];
 
     var response = options[Math.floor(Math.random() * options.length)];
-
-
     const kiss = new Discord.MessageEmbed()
         .setDescription(` ${message.author} À régénérer un gif Among US `)
         .setColor(purple_medium)
         .setImage(`${response}`)
     message.channel.send(kiss);
     console.log(`|----> amongus utilisé sur le serveur :  ${message.guild.name} `)
-
-
 }
 
 module.exports.config = {
     name: 'amongus'
-    }
+}

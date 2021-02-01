@@ -4,17 +4,17 @@ var imposterDetector = [true, false]
 
 module.exports.run = async(bot, message, args) => {
 
-    
-    exports.run = async (client, message, args) => {
+
+    exports.run = async(client, message, args) => {
         await message.delete();
-        if(args[0]){
+        if (args[0]) {
             const username = args[0]
             var blames = await usernameResolver(message, username)
         }
         const impostor = Math.floor(Math.random() * imposterDetector.length)
-            const embed = new MessageEmbed()
+        const embed = new MessageEmbed()
             .setAuthor(
-                `${message.author.tag}`, 
+                `${message.author.tag}`,
                 `${message.author.displayAvatarURL({dynamic: true})}`
             )
             .setTitle("Among us - Galaxy")
@@ -28,8 +28,9 @@ module.exports.run = async(bot, message, args) => {
             ,　　　　.　 .　　       .
             `)
             .setTimestamp();
-            message.channel.send(embed)
-            }};
+        message.channel.send(embed)
+    }
+};
 
 module.exports.config = {
     name: 'imposteur'

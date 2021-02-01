@@ -1,7 +1,6 @@
 const Discord = require("discord.js")
 const { purple_medium } = require("../../colors.json");
 
-
 module.exports.run = async(bot, message, args) => {
 
     let mentioned = message.mentions.members.first() || message.author
@@ -25,25 +24,18 @@ module.exports.run = async(bot, message, args) => {
         "https://media.giphy.com/media/xJlOdEYy0r7ZS/giphy.gif",
         "https://media.giphy.com/media/49mdjsMrH7oze/giphy.gif",
         "https://media.giphy.com/media/ShAchOHe38Aak/giphy.gif",
-        "https://media.giphy.com/media/JLovyTOWK4cuc/giphy.gif"  // 19
-
-
+        "https://media.giphy.com/media/JLovyTOWK4cuc/giphy.gif" // 19
     ];
 
     var response = options[Math.floor(Math.random() * options.length)];
-
-
     const kiss = new Discord.MessageEmbed()
         .setDescription(`${mentioned} On dirait que ${message.author} t'a fait un câlin <a:Aila_ScribbleHeart:793220850363007006>`)
         .setColor(purple_medium)
         .setImage(`${response}`)
     message.channel.send(kiss);
     console.log(`|----> calin utilisé sur le serveur :  ${message.guild.name} `)
-
-
-
 }
 
 module.exports.config = {
     name: 'calin'
-    }
+}

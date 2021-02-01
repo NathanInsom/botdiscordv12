@@ -19,10 +19,10 @@ module.exports.run = async(bot, message, args) => {
         "https://media.giphy.com/media/l4FsxDD7LwInTgy5O/giphy.gif",
         "https://media.giphy.com/media/EVODaJHSXZGta/giphy.gif",
         "https://media.giphy.com/media/7z1xs4Fl9Kb8A/giphy.gif",
-         //15
+        //15
     ];
     var response = options[Math.floor(Math.random() * options.length)];
-    
+
 
     const kiss = new Discord.MessageEmbed()
         .setDescription(`${mentioned} Tu as été embrasser par ${message.author} <a:Aila_ScribbleHeart:793220850363007006>`)
@@ -31,11 +31,8 @@ module.exports.run = async(bot, message, args) => {
     message.channel.send(kiss);
 
     console.log(`|----> kiss utilisé sur le serveur :  ${message.guild.name} `)
-
-
-
 }
 
 module.exports.config = {
     name: 'kiss'
-    }
+}

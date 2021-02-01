@@ -8,14 +8,14 @@ module.exports.run = async(bot, message, args) => {
             .setDescription("❌ Merci d'inclure un message pour effectuer cette commande.")
             .setColor("#DD2E44")
         message.channel.send(error_one)
-    }else {
-    var color = new Discord.MessageEmbed()
-        .setDescription(thingToEcho)
-        .setColor("#FFFFFF")
-        .setFooter(`Envoyé par ${message.author.tag}`, message.author.avatarURL)
-    message.channel.send(color)
-    message.delete()
-}
+    } else {
+        var color = new Discord.MessageEmbed()
+            .setDescription(thingToEcho)
+            .setColor("#FFFFFF")
+            .setFooter(`Envoyé par ${message.author.tag}`, message.author.avatarURL)
+        message.channel.send(color)
+        message.delete()
+    }
 }
 
 module.exports.config = {

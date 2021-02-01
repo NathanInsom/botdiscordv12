@@ -4,7 +4,6 @@ const { purple_medium } = require("../../colors.json");
 
 module.exports.run = async(bot, message, args) => {
 
-    let mentioned = message.mentions.members.first() || message.author
     var options = [
 
         "https://media1.tenor.com/images/a8b70e6d4459ee9d37ac151380178423/tenor.gif?itemid=4934544",
@@ -16,9 +15,6 @@ module.exports.run = async(bot, message, args) => {
         "https://media1.tenor.com/images/753603e0a74bf078fb89736ae5b75fb0/tenor.gif?itemid=17585816",
         "https://media1.tenor.com/images/1ac375ffe6f2e99ac36eb1b42a7b9707/tenor.gif?itemid=13593873",
         "https://media1.tenor.com/images/b52f739af6333c55db0d34491d123a81/tenor.gif?itemid=13279406",
-
-
-
 
     ];
 
@@ -34,10 +30,8 @@ module.exports.run = async(bot, message, args) => {
     message.channel.send(kiss);
     console.log(`|----> naruto utilisé sur le serveur :  ${message.guild.name} `)
 
-
-
 }
 
 module.exports.config = {
     name: 'naruto'
-    }
+}

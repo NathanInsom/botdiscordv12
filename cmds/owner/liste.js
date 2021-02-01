@@ -1,17 +1,17 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async(bot, message, args) => {
 
     message.delete();
 
-    if(message.author.id !== "651202869743190016") return message.channel.send(`Vous n'avez pas la permission.`);
+    if (message.author.id !== "651202869743190016") return message.channel.send(`Vous n'avez pas la permission.`);
 
     let bicon = bot.user.displayAvatarURL();
 
     let string = '';
     bot.guilds.cache.forEach(guild => {
-    string += guild.name +   '\n' ;})
-    let bt = bot.user.username;
+        string += guild.name + '\n';
+    })
 
     let botembed = new Discord.MessageEmbed()
         .setColor("RANDOM")

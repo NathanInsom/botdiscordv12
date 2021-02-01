@@ -1,5 +1,3 @@
-const Discord = require("discord.js")
-
 module.exports.run = async(bot, message, args) => {
     console.log(`|----> blague utilisé sur le serveur :  ${message.guild.name} `)
 
@@ -12,10 +10,9 @@ module.exports.run = async(bot, message, args) => {
     ]
     var response = jokes[Math.floor(Math.random() * jokes.length)];
     message.channel.send(response).then().catch(console.error);
+}
 
-    }
 
-
-    module.exports.config = {
-        name: 'blague'
-        }
+module.exports.config = {
+    name: 'blague'
+}
