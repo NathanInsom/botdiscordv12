@@ -1,14 +1,15 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client();
+const config = require('./config.json')
 const fs = require('fs')
 const { readdirSync } = require('fs');
 const color = require('chalk')
-const config = require('./config.json')
 require('dotenv').config();
 
 bot.commands = new Discord.Collection()
 
-const loadCommand = (dir = "./cmds/") => {
+
+const loadCommands = (dir = "./cmds") => {
     readdirSync(dir).forEach(dirs => {
         const commands = readdirSync(`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
 
@@ -20,10 +21,9 @@ const loadCommand = (dir = "./cmds/") => {
         };
     });
 };
+loadCommands();
 
-loadCommand()
-
-const loadEvents = (dir = "./events/") => {
+const loadEvents = (dir = "./events") => {
     fs.readdirSync(dir).forEach(dirs => {
         const eventFiles = fs.readdirSync(`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
 
@@ -41,7 +41,7 @@ loadEvents();
 bot.on("message", async message => {
 
     if (message.channel.type === "dm")
-        eturn;
+        return;
 
     let prefix = config.prefix
     if (!message.content.startsWith(prefix))
@@ -65,8 +65,7 @@ bot.on('message', message => {
 bot.on('guildCreate', guild => {
 
     const embed = new Discord.MessageEmbed()
-
-    .setDescription(`📌 Merci à **${guild.name}** d'avoir ajouté Kossi Drôle.`)
+        .setDescription(`📌 Merci à **${guild.name}** d'avoir ajouté Kossi Drôle.`)
         .addField("📋 __Nom du serveur__", guild.name, true)
         .addField("📊 __Nombre de membres__ :", guild.memberCount, true)
         .addField("💻 __Nombre de salons__ :", guild.channels.size, true)
