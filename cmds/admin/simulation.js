@@ -72,6 +72,6 @@ module.exports.run = async(bot, message, args) => {
     setTimeout(async() => { message.channel.send(Embed7) }, 138000)
 
 }
-module.exports.config = {
+module.exports.get = {
     name: 'simulation'
 }

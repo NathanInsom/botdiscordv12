@@ -1,10 +1,9 @@
 module.exports = (bot) => {
 
-    console.log(`(${bot.user.username}): Je suis a ton service`)
+    console.log(`(${bot.user.username}): Je suis connecté`)
     let statuses = [
         `+aide | ${bot.guilds.cache.size} serveurs`,
         `${bot.guilds.cache.reduce((a, g) => a + g.memberCount,0)} Utilisateurs`,
-        `zetsu.fr`,
     ]
 
     setInterval(function() {

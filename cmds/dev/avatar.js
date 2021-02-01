@@ -12,6 +12,6 @@ module.exports.run = async(bot, message, args) => {
     await message.channel.send(embed);
 }
 
-module.exports.config = {
+module.exports.get = {
     name: 'avatar'
 }

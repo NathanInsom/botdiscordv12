@@ -71,6 +71,6 @@ module.exports.run = async(bot, message, args) => {
     console.log(times + "\x1b[36m%s\x1b[0m", "[INFO]", "\x1b[0m", "Command: " + "password" + " executed | By: " + message.author.displayName + " | In server: " + message.guild.name);
 }
 
-module.exports.config = {
+module.exports.get = {
     name: "password"
 }

@@ -17,6 +17,6 @@ module.exports.run = async(bot, message, args) => {
     message.channel.send("<:enveloppe:800390849320976425>   **Vos notes ont été envoyé en message privée.**")
 }
 
-module.exports.config = {
+module.exports.get = {
     name: "note"
 }

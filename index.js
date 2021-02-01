@@ -1,8 +1,8 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client();
-const { readdirSync } = require('fs')
-const color = require('chalk')
 const fs = require('fs')
+const { readdirSync } = require('fs');
+const color = require('chalk')
 const config = require('./config.json')
 require('dotenv').config();
 
@@ -13,9 +13,10 @@ const loadCommand = (dir = "./cmds/") => {
         const commands = readdirSync(`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
 
         for (const file of commands) {
-            const getFilesName = require(`${dir}/${dirs}/${file}`);
-            bot.commands.set(getFilesName.name, getFilesName)
-            console.log("[" + color.blueBright `⭐` + `] : Commande chargé : ${getFilesName.name}`);
+            const filesName = require(`${dir}/${dirs}/${file}`);
+            const files = file.split(".")[0];
+            bot.commands.set(files, filesName)
+            console.log("[" + color.blueBright `⭐` + `] : Commande chargé : ${files}`);
         };
     });
 };
@@ -24,14 +25,14 @@ loadCommand()
 
 const loadEvents = (dir = "./events/") => {
     fs.readdirSync(dir).forEach(dirs => {
-        const eventFiles = fs.readdirSync(`${dir}/${dirs}/`)
-            .filter(files => files.endsWith(".js"));
+        const eventFiles = fs.readdirSync(`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
 
         for (const event of eventFiles) {
             const evt = require(`${dir}/${dirs}/${event}`);
             const evtName = event.split(".")[0];
             bot.on(evtName, evt.bind(null, bot));
             console.log("| 〽️ | L'évenement " + evtName + " est prêt.");
+
         };
     });
 };

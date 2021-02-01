@@ -45,6 +45,6 @@ module.exports.run = async(bot, message, args) => {
 }
 
 
-module.exports.config = {
+module.exports.get = {
     name: "ban"
 }

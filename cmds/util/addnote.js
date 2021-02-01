@@ -26,6 +26,6 @@ module.exports.run = async(bot, message, args) => {
     message.channel.send("<:enveloppe:800390849320976425> **Votre note a bien été actualisés avec succès.**")
 }
 
-module.exports.config = {
+module.exports.get = {
     name: "addnote"
 }

@@ -48,6 +48,6 @@ exports.run = (client, message, args) => {
 }
 
 
-module.exports.config = {
+module.exports.get = {
     name: 'infouser'
 }

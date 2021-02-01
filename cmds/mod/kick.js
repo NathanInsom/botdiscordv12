@@ -44,6 +44,6 @@ module.exports.run = async(bot, message, args) => {
     console.log(`|----> kick utilisé sur le serveur :  ${message.guild.name} `)
 }
 
-module.exports.config = {
+module.exports.get = {
     name: "kick"
 }

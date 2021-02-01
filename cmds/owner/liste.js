@@ -23,6 +23,6 @@ module.exports.run = async(bot, message, args) => {
     message.channel.send(botembed);
 }
 
-module.exports.config = {
+module.exports.get = {
     name: "liste"
 }

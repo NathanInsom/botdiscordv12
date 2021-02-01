@@ -13,6 +13,6 @@ module.exports.run = async(bot, message, args) => {
     message.channel.send(att);
 }
 
-module.exports.config = {
+module.exports.get = {
     name: "wanted"
 }

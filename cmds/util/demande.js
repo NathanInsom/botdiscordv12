@@ -21,6 +21,6 @@ module.exports.run = async(bot, message, args) => {
     message.author.send("<:enveloppe:800390849320976425> **Votre suggestion viens d'être envoyé sur le serveur principal.**")
 }
 
-module.exports.config = {
+module.exports.get = {
     name: "demande"
 }*/

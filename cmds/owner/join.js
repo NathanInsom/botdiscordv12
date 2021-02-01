@@ -10,6 +10,6 @@ module.exports.run = async(bot, message, args) => {
     message.channel.send(":white_check_mark: Connecté au Vocal !")
 }
 
-module.exports.config = {
+module.exports.get = {
     name: 'join',
 }

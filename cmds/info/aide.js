@@ -115,6 +115,6 @@ module.exports.run = async(bot, message, args) => {
     pagination(message, pages, emojiList, timeout)
 }
 
-module.exports.config = {
+module.exports.get = {
     name: 'aide'
 }

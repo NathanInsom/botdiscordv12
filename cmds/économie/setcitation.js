@@ -16,6 +16,6 @@ exports.run = (client, message, args) => {
     message.channel.send("<a:check:800412981506080838> **Votre citation a bien été actualisé avec succès.**")
 }
 
-module.exports.config = {
+module.exports.get = {
     name: "setcitation"
 }
