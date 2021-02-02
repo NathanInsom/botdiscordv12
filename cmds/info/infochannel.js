@@ -9,14 +9,12 @@ module.exports.run = async(bot, message, args) => {
         .addField("🔗 ID du channel:", message.channel.id, true)
         .addField("📋 Type de channel :", message.channel.type, true)
         .addField("📅 Date de création du channel :", message.channel.createdAt, true)
-
-        
         .setColor("#8DFF33")
     message.channel.send(channel_info)
     console.log(`|----> infochannel utilisé sur le serveur :  ${message.guild.name} `)
 
 }
 
-module.exports.config = {
+module.exports.get = {
     name: "infochannel"
 }

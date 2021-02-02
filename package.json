@@ -1,0 +1,34 @@
+{
+    "name": "discord",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/amineouhani/botdiscordv12.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/amineouhani/botdiscordv12/issues"
+    },
+    "homepage": "https://github.com/amineouhani/botdiscordv12#readme",
+    "dependencies": {
+        "FileSync": "^1.0.1",
+        "chalk": "^4.1.0",
+        "cpu-stat": "^2.0.1",
+        "discord.js": "^12.5.1",
+        "discord.js-pagination": "^1.0.3",
+        "figlet": "^1.5.0",
+        "generate-password": "^1.6.0",
+        "kitsu.js": "^2.0.0",
+        "lowdb": "^1.0.0",
+        "node-superfetch": "^0.1.10",
+        "superagent": "^6.1.0",
+        "twemoji-parser": "^13.0.0"
+    }
+}

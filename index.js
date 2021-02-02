@@ -1,82 +1,70 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client();
-const config = require ("./db/config.json")
-const { readdirSync } = require('fs')
-const color = require('chalk')
+const config = require('./config.json')
 const fs = require('fs')
-const Canvas = require('canvas')
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-
-
-
-
-
+const { readdirSync } = require('fs');
+const color = require('chalk')
+require('dotenv').config();
 
 bot.commands = new Discord.Collection()
 
 
-
-const loadCommand = (dir = "./cmds/") => {
+const loadCommands = (dir = "./cmds") => {
     readdirSync(dir).forEach(dirs => {
         const commands = readdirSync(`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
 
-        for(const file of commands) {
-            const getFilesName = require(`${dir}/${dirs}/${file}`);
-            bot.commands.set(getFilesName.config.name, getFilesName)
-            console.log("[" + color.blueBright `⭐` + `] : Commande chargé : ${getFilesName.config.name}`);
+        for (const file of commands) {
+            const filesName = require(`${dir}/${dirs}/${file}`);
+            const files = file.split(".")[0];
+            bot.commands.set(files, filesName)
+            console.log("[" + color.blueBright `⭐` + `] : Commande chargé : ${files}`);
         };
     });
 };
-loadCommand()
+loadCommands();
 
-const loadEvents = (dir = "./events/") => {
+const loadEvents = (dir = "./events") => {
     fs.readdirSync(dir).forEach(dirs => {
-        const eventFiles = fs.readdirSync(`${dir}/${dirs}/`)
-        .filter(files => files.endsWith(".js"));
+        const eventFiles = fs.readdirSync(`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
 
         for (const event of eventFiles) {
             const evt = require(`${dir}/${dirs}/${event}`);
             const evtName = event.split(".")[0];
-            bot.on(evtName, evt.bind (null, bot));
-            console.log("| 〽️ | L'évenement " +  evtName + " est prêt.");
+            bot.on(evtName, evt.bind(null, bot));
+            console.log("| 〽️ | L'évenement " + evtName + " est prêt.");
+
         };
     });
 };
 loadEvents();
 
-
-
-
-
 bot.on("message", async message => {
 
-    if(message.channel.type === "dm") return; // si message privé ruturn
+    if (message.channel.type === "dm")
+        return;
 
     let prefix = config.prefix
-    if (!message.content.startsWith(prefix)) return;
+    if (!message.content.startsWith(prefix))
+        return;
     let messageArray = message.content.split(" ")
     let command = messageArray[0];
     let args = messageArray.slice(1);
 
     let commandFile = bot.commands.get(command.slice(prefix.length))
-    if(commandFile) commandFile.run(bot, message, args)
-
-
-
+    if (commandFile)
+        commandFile.run(bot, message, args)
 })
 
 bot.on('message', message => {
     const prefixMention = new RegExp(`^<@!?${bot.user.id}>( |)$`);
-           if (message.content.match(prefixMention)) {
-               return message.channel.send("Regarde `+aide`");
-           }
-   })
+    if (message.content.match(prefixMention)) {
+        return message.channel.send("Regarde `+aide`");
+    }
+})
 
 bot.on('guildCreate', guild => {
 
     const embed = new Discord.MessageEmbed()
-
         .setDescription(`📌 Merci à **${guild.name}** d'avoir ajouté Kossi Drôle.`)
         .addField("📋 __Nom du serveur__", guild.name, true)
         .addField("📊 __Nombre de membres__ :", guild.memberCount, true)
@@ -86,16 +74,8 @@ bot.on('guildCreate', guild => {
         .addField("📝 __ID du serveur__ :", guild.id, true)
         .addField("<a:Aila_ScribbleHeart:793220850363007006> __Serveurs actuel__ :", true)
 
-
-        .setColor("#F03A17")
-        bot.channels.cache.get('801187747242311750').send(embed);
+    .setColor("#F03A17")
+    bot.channels.cache.get(config.defaultChannel).send(embed);
 });
 
-
-
-
-
-
-
-
-bot.login(config.token)
+bot.login(process.env.AUTH_TOKEN)

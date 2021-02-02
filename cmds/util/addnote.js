@@ -1,11 +1,10 @@
-const Discord = require('discord.js');
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('./db.json')
+const adapter = new FileSync('./data.json')
 const db = low(adapter)
 
 module.exports.run = async(bot, message, args) => {
-  console.log(`|----> addnote utilisé sur le serveur :  ${message.guild.name} `)
+    console.log(`|----> addnote utilisé sur le serveur :  ${message.guild.name} `)
 
     var args = message.content.split(" ").slice(1);
     var msg_note = args.join(" ")
@@ -15,18 +14,18 @@ module.exports.run = async(bot, message, args) => {
 
         db.get("note").push({ auteur: author, notes: msg_note }).write()
 
-      } else {
+    } else {
 
         var usernotedb = db.get("note").filter({ auteur: author }).find('notes').value()
 
         var note = Object.values(usernotedb)
 
-        db.get("note").find({ auteur: author }).assign({ auteur: author, notes: msg_note }).write()   
-}
-message.delete()
-message.channel.send("<:enveloppe:800390849320976425> **Votre note a bien été actualisés avec succès.**")
+        db.get("note").find({ auteur: author }).assign({ auteur: author, notes: msg_note }).write()
+    }
+    message.delete()
+    message.channel.send("<:enveloppe:800390849320976425> **Votre note a bien été actualisés avec succès.**")
 }
 
-module.exports.config = {
+module.exports.get = {
     name: "addnote"
 }

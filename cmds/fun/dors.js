@@ -4,7 +4,6 @@ const { purple_medium } = require("../../colors.json");
 
 module.exports.run = async(bot, message, args) => {
 
-    let mentioned = message.mentions.members.first() || message.author
     var options = [
         "https://acegif.com/wp-content/gif/anime-sleep-25.gif",
         "https://acegif.com/wp-content/gif/anime-sleep-47.gif",
@@ -34,11 +33,8 @@ module.exports.run = async(bot, message, args) => {
         .setImage(`${response}`)
     message.channel.send(kiss);
     console.log(`|----> dors utilisé sur le serveur :  ${message.guild.name} `)
-
-
-
 }
 
-module.exports.config = {
+module.exports.get = {
     name: 'dors'
-    }
+}

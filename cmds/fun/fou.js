@@ -30,10 +30,8 @@ module.exports.run = async(bot, message, args) => {
     message.channel.send(kiss);
     console.log(`|----> fou utilisé sur le serveur :  ${message.guild.name} `)
 
-
-
 }
 
-module.exports.config = {
+module.exports.get = {
     name: 'fou'
-    }
+}

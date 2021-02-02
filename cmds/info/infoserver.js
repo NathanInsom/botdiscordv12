@@ -13,9 +13,9 @@ exports.run = (client, message, args) => {
         .setFooter("📆 Ce serveur a été créé le " + message.guild.createdAt)
     message.channel.send(infodiscord)
 }
- 
 
 
-module.exports.config = {
+
+module.exports.get = {
     name: 'infoserver'
 }
